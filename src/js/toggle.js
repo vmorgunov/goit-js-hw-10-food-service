@@ -4,6 +4,7 @@ const Theme = {
 };
 
 const toggleBtn = document.getElementById('theme-switch-toggle');
+const { DARK, LIGHT } = Theme;
 
 function setTheme(themeName) {
   localStorage.setItem('theme', themeName);
@@ -11,7 +12,6 @@ function setTheme(themeName) {
 }
 
 function toggleTheme() {
-  const { DARK, LIGHT } = Theme;
   if (localStorage.getItem('theme') === DARK) {
     setTheme(LIGHT);
   } else {
@@ -21,7 +21,7 @@ function toggleTheme() {
 
 function checkTheme() {
   const localStorageName = localStorage.getItem('theme');
-  if (localStorageName === Theme.DARK) {
+  if (localStorageName === DARK) {
     document.body.className = localStorageName;
     toggleBtn.checked = true;
   }
